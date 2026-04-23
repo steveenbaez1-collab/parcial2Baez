@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:crmdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    default-property-inclusion: non_null
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:Q3JtUGFyY2lhbEJhZXoyU2VjcmV0S2V5Rm9ySldUMTIzNDU2Nzg5MDEyMzQ1Njc4OTA=}
+    expiration: 86400000
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
